@@ -11,6 +11,7 @@ import { City } from "./components/city";
 import { Bus2 } from "./components/models/bus2";
 import { Bus3 } from "./components/models/bus3";
 import { Bike } from "./components/models/bike";
+import { Bike2 } from "./components/models/bike2";
 
 
 
@@ -30,13 +31,29 @@ function App() {
               position={[35, -19, -120]}
               rotation={[0, Math.PI, 0]}
             />
+            <Car3
+              scale={0.04}
+              position={[24, -19, -20]}
+              rotation={[0, Math.PI, 0]}
+            />
+            <Car3
+              scale={0.04}
+              position={[-5, -19, 40]}
+              // rotation={[0, Math.PI, 0]}
+            />
             <Car4 scale={6} position={[-5, -19, -220]} />
             <Bus2
               scale={0.03}
               position={[-60, -18, -60]}
               rotation={[0, Math.PI, 0]}
             />
+
             <Bus3 scale={3} position={[35, -18, -220]} />
+            <Bus3
+              scale={3}
+              position={[85, -18, -30]}
+              rotation={[0, -Math.PI / 2, 0]}
+            />
             <Bike scale={7} position={[60, -18, -20]} />
             <Bike
               scale={7}
@@ -44,6 +61,12 @@ function App() {
               rotation={[0, Math.PI, 0]}
             />
             <Bike scale={7} position={[-60, -18, -20]} />
+            <Bike2
+              scale={6}
+              position={[5, -15, -120]}
+              rotation={[0, Math.PI, 0]}
+            />
+            <Bike2 scale={6} position={[35, -15, 30]} />
 
             <ambientLight intensity={0} />
             <directionalLight />
