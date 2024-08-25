@@ -17,3 +17,6 @@ npm install react-three-fiber @react-three/drei
 4. Clone the repo 
 5. Download the Public Folder
 6. Run the App
+```bash
+npm run dev
+```
