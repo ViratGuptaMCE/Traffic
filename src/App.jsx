@@ -43,7 +43,14 @@ function Randomise() {
 }
 
 function App() {
-  const vehicles = useVehicles();
+  const [vehicles, setVehicles] = useVehicles();
+  
+   const removeVehicle = (id) => {
+     setVehicles((prevVehicles) =>
+       prevVehicles.filter((vehicle) => vehicle.id !== id)
+     );
+   };
+  
   return (
     <div className="App h-[100vh]">
       <header className="App-header h-[100vh]">
@@ -53,79 +60,85 @@ function App() {
         >
           <Suspense fallback={<Loader />}>
             <City scale={0.04} position={[300, -20, 250]} />
-            <Car scale={1.5} position={[24, -18, -120]} speed={0.3} />
+            <Car position={[24, -18, -120]} speed={0.3} />
             <Car3
-              scale={0.04}
               position={[35, -19, -120]}
               rotation={[0, Math.PI, 0]}
               speed={0.3}
             />
             <Car3
-              scale={0.04}
               position={[24, -19, -20]}
               rotation={[0, Math.PI, 0]}
               speed={0.3}
             />
             <Car3
-              scale={0.04}
               position={[-4, -19, 40]}
               speed={-0.3}
               // rotation={[0, Math.PI, 0]}
             />
 
-            <Car4 scale={6} position={[-5, -19, -220]} speed={-0.3} />
+            <Car4 position={[-5, -19, -220]} speed={-0.3} />
             <Bus2
-              scale={0.03}
               position={[-60, -18, -58]}
               rotation={[0, Math.PI, 0]}
               speed={0.2}
             />
 
-            <Bus3 scale={3} position={[35, -18, -220]} speed={0} />
+            <Bus3  position={[35, -18, -220]} speed={0} />
             <Bus3
-              scale={3}
               position={[85, -18, -30]}
               rotation={[0, -Math.PI / 2, 0]}
               speed={-0.2}
             />
-            <Bike scale={7} position={[60, -18, -18]} speed={-0.5} />
+            {/* <Bike position={[60, -18, -18]} speed={-0.5} />
             <Bike
-              scale={7}
               position={[-20, -18, -55]}
               speed={0.5}
               rotation={[0, Math.PI, 0]}
             />
-            <Bike scale={7} position={[-60, -18, -20]} speed={-0.5} />
+            <Bike position={[-60, -18, -20]} speed={-0.5} /> */}
             <Bike2
-              scale={6}
               position={[5, -15, -120]}
               rotation={[0, Math.PI, 0]}
               speed={-0.5}
             />
-            <Bike2 scale={6} position={[35, -15, 30]} speed={0.5} />
+            <Bike2 position={[35, -15, 30]} speed={0.5} />
             {vehicles.map((vehicle, index) => {
               if(vehicle.vehicType === 1){
                 return (
                   <Bus3
-                    scale={3}
+                    key={vehicle.id}
+                    removeVehicle={removeVehicle}
                     position={vehicle.position}
+                    vehic={vehicle}
                     rotation={[0, -Math.PI / 2, 0]}
                     speed={-0.2}
                   />
-                )
+                );
               } else if(vehicle.vehicType === 2) {
                 return (
-                  <Bike scale={7} position={vehicle.position} speed={-0.5} />
+                  <Bike
+                    key={vehicle.id}
+                    removeVehicle={removeVehicle}
+                    vehic={vehicle}
+                    position={vehicle.position}
+                    speed={-0.5}
+                  />
                 );
               } else {
                 return (
-                  <Bike scale={7} position={vehicle.position} speed={-0.5} />
+                  <Bike
+                    key={vehicle.id}
+                    removeVehicle={removeVehicle}
+                    direction={vehicle.direction}
+                    vehic={vehicle}
+                    position={vehicle.position}
+                    speed={-0.5}
+                  />
                 );
               }
             })}
 
-            <ambientLight intensity={0} />
-            <directionalLight />
             <OrbitControls />
             <Environment
               files="/hdris/sky.hdr"

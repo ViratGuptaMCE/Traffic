@@ -4,12 +4,16 @@ import { useFrame } from 'react-three-fiber';
 
 export function Bike(props) {
   const ref = useRef();
+  // console.log(props.vehic)
   useFrame(() => {
     ref.current.position.x += props.speed;
+    if (Math.abs(ref.current.position.x) > 500) {
+      props.removeVehicle(props.vehic.id);
+    }
   });
-  const { nodes, materials } = useGLTF('/models/bike2.glb')
+  const { nodes, materials } = useGLTF("/models/bike2.glb");
   return (
-    <group {...props} ref={ref} dispose={null}>
+    <group scale={7} {...props} ref={ref} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={0.005}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>

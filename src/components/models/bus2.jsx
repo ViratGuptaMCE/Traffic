@@ -9,7 +9,7 @@ export function Bus2(props) {
     ref.current.position.x += props.speed;
   });
   return (
-    <group {...props} ref={ref} dispose={null}>
+    <group {...props} scale={0.03} ref={ref} dispose={null}>
       <mesh
         castShadow
         receiveShadow

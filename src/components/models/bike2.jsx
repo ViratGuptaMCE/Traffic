@@ -9,7 +9,7 @@ export function Bike2(props) {
   });
   const { nodes, materials } = useGLTF("/models/bike3.glb");
   return (
-    <group {...props} ref={ref} dispose={null}>
+    <group scale={6} {...props} ref={ref} dispose={null}>
       <group scale={0.01}>
         <mesh
           castShadow

@@ -9,7 +9,7 @@ export function Car3(props) {
   });
   const { nodes, materials } = useGLTF("/models/car3.glb");
   return (
-    <group {...props} ref={ref} dispose={null}>
+    <group {...props} scale={0.04} ref={ref} dispose={null}>
       <group rotation={[Math.PI / 2, 0, -Math.PI]}>
         <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
           <mesh

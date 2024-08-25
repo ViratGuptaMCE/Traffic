@@ -9,12 +9,13 @@ export function Car4(props) {
   });
   const { nodes, materials} = useGLTF('/models/car4.glb')
   return (
-    <group {...props} ref={ref} dispose={null}>
+    <group {...props} scale={6} ref={ref} dispose={null}>
       <group scale={0.01}>
         <group
           position={[-47.67, 22.674, -76.438]}
           rotation={[0, -1.571, 0]}
-          scale={[11.207, 11.207, 16.411]}>
+          scale={[11.207, 11.207, 16.411]}
+        >
           <mesh
             castShadow
             receiveShadow
@@ -31,12 +32,13 @@ export function Car4(props) {
         <group
           position={[-49.248, 22.654, -76.438]}
           rotation={[Math.PI / 2, -Math.PI / 2, 0]}
-          scale={[17.671, 17.671, 25.877]}>
+          scale={[17.671, 17.671, 25.877]}
+        >
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Circle004_Material001_0.geometry}
-            material={materials['Material.001']}
+            material={materials["Material.001"]}
           />
           <mesh
             castShadow
@@ -48,7 +50,8 @@ export function Car4(props) {
         <group
           position={[47.271, 22.674, -76.438]}
           rotation={[0, 1.571, 0]}
-          scale={[11.207, 11.207, 16.411]}>
+          scale={[11.207, 11.207, 16.411]}
+        >
           <mesh
             castShadow
             receiveShadow
@@ -65,12 +68,13 @@ export function Car4(props) {
         <group
           position={[48.848, 22.654, -76.438]}
           rotation={[-Math.PI / 2, Math.PI / 2, 0]}
-          scale={[17.671, 17.671, 25.877]}>
+          scale={[17.671, 17.671, 25.877]}
+        >
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Circle002_Material001_0.geometry}
-            material={materials['Material.001']}
+            material={materials["Material.001"]}
           />
           <mesh
             castShadow
@@ -82,7 +86,8 @@ export function Car4(props) {
         <group
           position={[-52.561, 22.674, 118.262]}
           rotation={[0, -1.571, 0]}
-          scale={[11.207, 11.207, 16.411]}>
+          scale={[11.207, 11.207, 16.411]}
+        >
           <mesh
             castShadow
             receiveShadow
@@ -99,12 +104,13 @@ export function Car4(props) {
         <group
           position={[-54.138, 22.654, 118.262]}
           rotation={[Math.PI / 2, -Math.PI / 2, 0]}
-          scale={[17.671, 17.671, 25.877]}>
+          scale={[17.671, 17.671, 25.877]}
+        >
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Circle001_Material001_0.geometry}
-            material={materials['Material.001']}
+            material={materials["Material.001"]}
           />
           <mesh
             castShadow
@@ -116,7 +122,8 @@ export function Car4(props) {
         <group
           position={[52.469, 22.674, 118.262]}
           rotation={[0, 1.571, 0]}
-          scale={[11.207, 11.207, 16.411]}>
+          scale={[11.207, 11.207, 16.411]}
+        >
           <mesh
             castShadow
             receiveShadow
@@ -133,12 +140,13 @@ export function Car4(props) {
         <group
           position={[54.047, 22.654, 118.262]}
           rotation={[-Math.PI / 2, Math.PI / 2, 0]}
-          scale={[17.671, 17.671, 25.877]}>
+          scale={[17.671, 17.671, 25.877]}
+        >
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Circle003_Material001_0.geometry}
-            material={materials['Material.001']}
+            material={materials["Material.001"]}
           />
           <mesh
             castShadow
@@ -147,7 +155,11 @@ export function Car4(props) {
             material={materials.RIMS}
           />
         </group>
-        <group position={[0, 42.088, -168.426]} rotation={[0.012, 0, 0]} scale={374.812}>
+        <group
+          position={[0, 42.088, -168.426]}
+          rotation={[0.012, 0, 0]}
+          scale={374.812}
+        >
           <primitive object={nodes._rootJoint} />
           <skinnedMesh
             geometry={nodes.Object_41.geometry}
@@ -156,7 +168,7 @@ export function Car4(props) {
           />
           <skinnedMesh
             geometry={nodes.Object_42.geometry}
-            material={materials['Material.001']}
+            material={materials["Material.001"]}
             skeleton={nodes.Object_42.skeleton}
           />
           <skinnedMesh
@@ -218,7 +230,7 @@ export function Car4(props) {
         />
       </group>
     </group>
-  )
+  );
 }
 
 useGLTF.preload('/models/car4.glb')

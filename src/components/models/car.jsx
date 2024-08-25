@@ -9,7 +9,7 @@ export function Car(props) {
   });
   const { nodes, materials } = useGLTF("/models/car.glb");
   return (
-    <group {...props} ref={ref} dispose={null}>
+    <group {...props} scale={1.5} ref={ref} dispose={null}>
       <group scale={[1, 0.848, 5.952]}>
         <mesh
           castShadow

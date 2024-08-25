@@ -9,7 +9,7 @@ export function Bus3(props) {
   });
   const { nodes, materials } = useGLTF("/models/bus4.glb");
   return (
-    <group {...props} ref={ref} dispose={null}>
+    <group {...props} scale={3} ref={ref} dispose={null}>
       <mesh
         castShadow
         receiveShadow
