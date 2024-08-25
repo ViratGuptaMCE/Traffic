@@ -15,9 +15,13 @@ npm i
 npm install react-three-fiber @react-three/drei
 ```
 4.Follow the installation of Tailwind through https://tailwindcss.com/docs/guides/vite . (No need to run Step 1 i.e. Create your project)
+
 5. Clone the repo 
+
 6. Download the Public Folder
+
 7. Run the App
+
 ```bash
 npm run dev
 ```
