@@ -1,10 +1,15 @@
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { useFrame } from 'react-three-fiber';
 
 export function Car4(props) {
-  const { nodes, materials } = useGLTF('/models/car4.glb')
+  const ref = useRef();
+  useFrame(() => {
+    ref.current.position.z += props.speed;
+  });
+  const { nodes, materials} = useGLTF('/models/car4.glb')
   return (
-    <group {...props} dispose={null}>
+    <group {...props} ref={ref} dispose={null}>
       <group scale={0.01}>
         <group
           position={[-47.67, 22.674, -76.438]}

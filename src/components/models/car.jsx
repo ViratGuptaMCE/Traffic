@@ -1,10 +1,15 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import { useFrame } from "react-three-fiber";
 
 export function Car(props) {
+  const ref = useRef();
+  useFrame(() => {
+    ref.current.position.z += props.speed;
+  });
   const { nodes, materials } = useGLTF("/models/car.glb");
   return (
-    <group {...props} dispose={null}>
+    <group {...props} ref={ref} dispose={null}>
       <group scale={[1, 0.848, 5.952]}>
         <mesh
           castShadow

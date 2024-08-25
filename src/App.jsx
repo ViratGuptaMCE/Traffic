@@ -25,48 +25,55 @@ function App() {
         >
           <Suspense fallback={<Loader />}>
             <City scale={0.04} position={[300, -20, 250]} />
-            <Car scale={1.5} position={[24, -18, -120]} />
+            <Car scale={1.5} position={[24, -18, -120]} speed={0.3}/>
             <Car3
               scale={0.04}
               position={[35, -19, -120]}
               rotation={[0, Math.PI, 0]}
+              speed={0.3}
             />
             <Car3
               scale={0.04}
               position={[24, -19, -20]}
               rotation={[0, Math.PI, 0]}
+              speed={0.3}
             />
             <Car3
               scale={0.04}
               position={[-5, -19, 40]}
+              speed={-0.3}
               // rotation={[0, Math.PI, 0]}
             />
-            <Car4 scale={6} position={[-5, -19, -220]} />
+            <Car4 scale={6} position={[-5, -19, -220]} speed={-0.3} />
             <Bus2
               scale={0.03}
               position={[-60, -18, -60]}
               rotation={[0, Math.PI, 0]}
+              speed={0.2}
             />
 
-            <Bus3 scale={3} position={[35, -18, -220]} />
+            <Bus3 scale={3} position={[35, -18, -220]} speed={0} />
             <Bus3
               scale={3}
               position={[85, -18, -30]}
               rotation={[0, -Math.PI / 2, 0]}
+              speed={-0.2}
             />
-            <Bike scale={7} position={[60, -18, -20]} />
+            <Bike scale={7} position={[60, -18, -20]} speed={-0.5} />
             <Bike
               scale={7}
               position={[-20, -18, -50]}
+              speed={0.5}
               rotation={[0, Math.PI, 0]}
             />
-            <Bike scale={7} position={[-60, -18, -20]} />
+            <Bike scale={7} position={[-60, -18, -20]} speed={-0.5} />
             <Bike2
               scale={6}
               position={[5, -15, -120]}
               rotation={[0, Math.PI, 0]}
+              speed={-0.5}
             />
-            <Bike2 scale={6} position={[35, -15, 30]} />
+            <Bike2 scale={6} position={[35, -15, 30]} speed={0.5} />
 
             <ambientLight intensity={0} />
             <directionalLight />

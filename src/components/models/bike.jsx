@@ -1,10 +1,15 @@
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { useFrame } from 'react-three-fiber';
 
 export function Bike(props) {
+  const ref = useRef();
+  useFrame(() => {
+    ref.current.position.x += props.speed;
+  });
   const { nodes, materials } = useGLTF('/models/bike2.glb')
   return (
-    <group {...props} dispose={null}>
+    <group {...props} ref={ref} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={0.005}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
@@ -18,7 +23,7 @@ export function Bike(props) {
               castShadow
               receiveShadow
               geometry={nodes.Cube021_Material006_0.geometry}
-              material={materials['Material.006']}
+              material={materials["Material.006"]}
             />
           </group>
           <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
@@ -172,13 +177,13 @@ export function Bike(props) {
               castShadow
               receiveShadow
               geometry={nodes.Cylinder001_Material001_0.geometry}
-              material={materials['Material.001']}
+              material={materials["Material.001"]}
             />
             <mesh
               castShadow
               receiveShadow
               geometry={nodes.Cylinder001_Material004_0.geometry}
-              material={materials['Material.004']}
+              material={materials["Material.004"]}
             />
           </group>
           <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
@@ -186,13 +191,13 @@ export function Bike(props) {
               castShadow
               receiveShadow
               geometry={nodes.Cylinder011_Material001_0.geometry}
-              material={materials['Material.001']}
+              material={materials["Material.001"]}
             />
             <mesh
               castShadow
               receiveShadow
               geometry={nodes.Cylinder011_Material004_0.geometry}
-              material={materials['Material.004']}
+              material={materials["Material.004"]}
             />
           </group>
           <mesh
@@ -223,7 +228,7 @@ export function Bike(props) {
             castShadow
             receiveShadow
             geometry={nodes.benzobak_2LP002_bak001_0.geometry}
-            material={materials['bak.001']}
+            material={materials["bak.001"]}
             rotation={[-Math.PI / 2, 0, 0]}
             scale={100}
           />
@@ -247,7 +252,7 @@ export function Bike(props) {
             castShadow
             receiveShadow
             geometry={nodes.benzobak_2LP005_Material005_0.geometry}
-            material={materials['Material.005']}
+            material={materials["Material.005"]}
             rotation={[-Math.PI / 2, 0, 0]}
             scale={100}
           />
@@ -343,7 +348,7 @@ export function Bike(props) {
             castShadow
             receiveShadow
             geometry={nodes.Circle002_Material003_0.geometry}
-            material={materials['Material.003']}
+            material={materials["Material.003"]}
             rotation={[-Math.PI / 2, 0, 0]}
             scale={100}
           />
@@ -399,7 +404,7 @@ export function Bike(props) {
             castShadow
             receiveShadow
             geometry={nodes.Cube002_hild001_0.geometry}
-            material={materials['hild.001']}
+            material={materials["hild.001"]}
             rotation={[-Math.PI / 2, 0, 0]}
             scale={100}
           />
@@ -1223,7 +1228,7 @@ export function Bike(props) {
             castShadow
             receiveShadow
             geometry={nodes.BezierCurve016__0.geometry}
-            material={materials['BezierCurve.016__0']}
+            material={materials["BezierCurve.016__0"]}
             rotation={[-Math.PI / 2, 0, 0]}
             scale={100}
           />
@@ -1374,7 +1379,7 @@ export function Bike(props) {
         </group>
       </group>
     </group>
-  )
+  );
 }
 
 useGLTF.preload('/models/bike2.glb')

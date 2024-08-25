@@ -1,10 +1,15 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import { useFrame } from "react-three-fiber";
 
 export function Bus3(props) {
+  const ref = useRef();
+  useFrame(() => {
+    ref.current.position.x += props.speed;
+  });
   const { nodes, materials } = useGLTF("/models/bus4.glb");
   return (
-    <group {...props} dispose={null}>
+    <group {...props} ref={ref} dispose={null}>
       <mesh
         castShadow
         receiveShadow
