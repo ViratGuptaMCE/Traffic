@@ -4,12 +4,48 @@ import { useFrame } from "react-three-fiber";
 
 export function Bike2(props) {
   const ref = useRef();
+  let rotation;
+  if (props.direction == "bottom") {
+    rotation = [0, -Math.PI, 0];
+  } else if (props.direction == "left") {
+    rotation = [0, Math.PI /2, 0];
+  } else if (props.direction == "up") {
+    rotation = [0, 0, 0];
+  } else {
+    rotation = [0, -Math.PI/2, 0];
+  }
+
+  function changePosition() {
+    if (props.direction == "bottom") {
+      ref.current.position.z += props.speed;
+      if (Math.abs(ref.current.position.z) > 500) {
+        props.removeVehicle(props.uid);
+      }
+    } else if (props.direction == "left") {
+      ref.current.position.x += props.speed;
+      if (Math.abs(ref.current.position.x) > 500) {
+        props.removeVehicle(props.uid);
+      }
+    } else if (props.direction == "up") {
+      if (Math.abs(ref.current.position.z) > 500) {
+        props.removeVehicle(props.uid);
+      }
+      ref.current.position.z -= props.speed;
+    } else {
+      if (Math.abs(ref.current.position.x) > 500) {
+        props.removeVehicle(props.uid);
+      }
+      ref.current.position.x -= props.speed;
+    }
+  }
+
   useFrame(() => {
-    ref.current.position.z += props.speed;
+    ref.current.position.y = -15;
+    changePosition();
   });
   const { nodes, materials } = useGLTF("/models/bike3.glb");
   return (
-    <group scale={6} {...props} ref={ref} dispose={null}>
+    <group scale={6} {...props} rotation={rotation} ref={ref} dispose={null}>
       <group scale={0.01}>
         <mesh
           castShadow

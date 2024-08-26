@@ -14,10 +14,9 @@ const useVehicles = () => {
         vehicType: randType,
         position: RIGHT.position[Math.floor(Math.random() + 0.5)],
         direction: "right",
-        visible: true,
+        // visible: true,
       };
       setRightVehicles((prevVehicles) => [...prevVehicles, randomVehicle]);
-      // console.log("Vehicle ",randType ,randomVehicle.position);
       timeoutId = setTimeout(addVehicle, 2000);
     }
     let timeoutId = setTimeout(addVehicle, 2000);
