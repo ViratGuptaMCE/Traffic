@@ -9,12 +9,14 @@ import Buses from "./components/models/Buses";
 import Bikes from "./components/models/bikes";
 import useRVehicles from "./utils/useRVehics";
 import useLVehicles from "./utils/useLVehics";
+import useUVehicles from "./utils/useUVehics";
 
 
 
 function App() {
   const [Rvehicles, setRVehicles] = useRVehicles();
   const [Lvehicles, setLVehicles] = useLVehicles();
+  const [Uvehicles, setUVehicles] = useUVehicles();
   // console.log(vehicles);
   
    const removeRVehicle = (id) => {
@@ -24,6 +26,11 @@ function App() {
    };
    const removeLVehicle = (id) => {
      setLVehicles((prevVehicles) =>
+       prevVehicles.filter((vehicle) => vehicle.id !== id)
+     );
+   };
+   const removeUVehicle = (id) => {
+     setUVehicles((prevVehicles) =>
        prevVehicles.filter((vehicle) => vehicle.id !== id)
      );
    };
@@ -140,6 +147,39 @@ function App() {
                     key={vehicle.id}
                     uid={vehicle.id}
                     removeVehicle={removeLVehicle}
+                    direction={vehicle.direction}
+                    position={vehicle.position}
+                  />
+                );
+              }
+            })}
+            {Uvehicles.map((vehicle) => {
+              if (vehicle.vehicType === 1) {
+                return (
+                  <Bikes
+                    key={vehicle.id}
+                    uid={vehicle.id}
+                    removeVehicle={removeUVehicle}
+                    direction={vehicle.direction}
+                    position={vehicle.position}
+                  />
+                );
+              } else if (vehicle.vehicType === 2) {
+                return (
+                  <Cars
+                    key={vehicle.id}
+                    uid={vehicle.id}
+                    removeVehicle={removeUVehicle}
+                    direction={vehicle.direction}
+                    position={vehicle.position}
+                  />
+                );
+              } else {
+                return (
+                  <Buses
+                    key={vehicle.id}
+                    uid={vehicle.id}
+                    removeVehicle={removeUVehicle}
                     direction={vehicle.direction}
                     position={vehicle.position}
                   />

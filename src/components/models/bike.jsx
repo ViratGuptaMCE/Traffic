@@ -6,11 +6,11 @@ export function Bike(props) {
   const ref = useRef();
   let rotation ;
   if (props.direction == 'bottom') {
-    rotation= [0,-Math.PI/2,0]
+    rotation= [0,Math.PI/2,0]
   } else if (props.direction == "left") {
     rotation= [0,Math.PI , 0]
   } else if (props.direction == "up") {
-    rotation = [0, Math.PI/2, 0];
+    rotation = [0, -Math.PI/2, 0];
   } else {
     rotation = [0, 0, 0];
   }
@@ -27,10 +27,11 @@ export function Bike(props) {
         props.removeVehicle(props.uid);
       }
     } else if (props.direction == "up") {
+      ref.current.position.z -= props.speed;
       if (Math.abs(ref.current.position.z) > 500) {
         props.removeVehicle(props.uid);
       }
-      ref.current.position.z -= props.speed;
+      
     } else {
       // console.log(ref.current.position.x);
       // console.log('If ',props.key);

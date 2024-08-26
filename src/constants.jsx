@@ -10,7 +10,7 @@ export const LEFT = {
 }
 export const UP = {
   position:[[-4,-18,500],
-  [-7,-18,500]],
+  [7,-18,500]],
   VehicLane1: [],
   VehicLane2: [],
 }

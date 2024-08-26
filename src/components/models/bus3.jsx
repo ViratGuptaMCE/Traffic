@@ -6,11 +6,11 @@ export function Bus3(props) {
   const ref = useRef();
   let rotation;
   if (props.direction == "bottom") {
-    rotation = [0, -Math.PI, 0];
+    rotation = [0, 0, 0];
   } else if (props.direction == "left") {
     rotation = [0, Math.PI/2, 0];
   } else if (props.direction == "up") {
-    rotation = [0, 0, 0];
+    rotation = [0, Math.PI, 0];
   } else {
     rotation = [0, -Math.PI / 2, 0];
   }
