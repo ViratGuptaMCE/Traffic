@@ -12,21 +12,20 @@ import useLVehicles from "./utils/useLVehics";
 import useUVehicles from "./utils/useUVehics";
 import useDVehicles from "./utils/useDVehics";
 
-import { Car4 } from "./components/models/car4";
+// import { Car4 } from "./components/models/car4";
 
 
 function App() {
-  const [vertiLight, setVertiLight] = useState('green');
+  const [vertiLight, setVertiLight] = useState(1);
   const [Rvehicles, setRVehicles] = useRVehicles();
   const [Lvehicles, setLVehicles] = useLVehicles();
   const [Uvehicles, setUVehicles] = useUVehicles();
   const [Dvehicles, setDVehicles] = useDVehicles();
+  console.log(vertiLight);
   // console.log(vehicles);
   useEffect(() => {
     const interval = setInterval(() => {
-      setVertiLight((prev) => {
-        return (prev === "green" ? "red" : "green")
-      });
+      setVertiLight((prev) => (!prev));
     }, 5000); // Change every 5 seconds
     
     return () => clearInterval(interval);
@@ -116,6 +115,7 @@ function App() {
                     removeVehicle={removeRVehicle}
                     direction={vehicle.direction}
                     position={vehicle.position}
+                    signal={!vertiLight}
                   />
                 );
               } else if (vehicle.vehicType === 2) {
@@ -126,6 +126,7 @@ function App() {
                     removeVehicle={removeRVehicle}
                     direction={vehicle.direction}
                     position={vehicle.position}
+                    signal={!vertiLight}
                   />
                 );
               } else {
@@ -136,6 +137,7 @@ function App() {
                     removeVehicle={removeRVehicle}
                     direction={vehicle.direction}
                     position={vehicle.position}
+                    signal={!vertiLight}
                   />
                 );
               }
@@ -149,6 +151,7 @@ function App() {
                     removeVehicle={removeLVehicle}
                     direction={vehicle.direction}
                     position={vehicle.position}
+                    signal={!vertiLight}
                   />
                 );
               } else if (vehicle.vehicType === 2) {
@@ -159,6 +162,7 @@ function App() {
                     removeVehicle={removeLVehicle}
                     direction={vehicle.direction}
                     position={vehicle.position}
+                    signal={!vertiLight}
                   />
                 );
               } else {
@@ -169,6 +173,7 @@ function App() {
                     removeVehicle={removeLVehicle}
                     direction={vehicle.direction}
                     position={vehicle.position}
+                    signal={!vertiLight}
                   />
                 );
               }
@@ -182,6 +187,7 @@ function App() {
                     removeVehicle={removeUVehicle}
                     direction={vehicle.direction}
                     position={vehicle.position}
+                    signal={vertiLight}
                   />
                 );
               } else if (vehicle.vehicType === 2) {
@@ -192,6 +198,7 @@ function App() {
                     removeVehicle={removeUVehicle}
                     direction={vehicle.direction}
                     position={vehicle.position}
+                    signal={vertiLight}
                   />
                 );
               } else {
@@ -202,6 +209,7 @@ function App() {
                     removeVehicle={removeUVehicle}
                     direction={vehicle.direction}
                     position={vehicle.position}
+                    signal={vertiLight}
                   />
                 );
               }
@@ -215,6 +223,7 @@ function App() {
                     removeVehicle={removeDVehicle}
                     direction={vehicle.direction}
                     position={vehicle.position}
+                    signal={vertiLight}
                   />
                 );
               } else if (vehicle.vehicType === 2) {
@@ -225,6 +234,7 @@ function App() {
                     removeVehicle={removeDVehicle}
                     direction={vehicle.direction}
                     position={vehicle.position}
+                    signal={vertiLight}
                   />
                 );
               } else {
@@ -235,6 +245,7 @@ function App() {
                     removeVehicle={removeDVehicle}
                     direction={vehicle.direction}
                     position={vehicle.position}
+                    signal={vertiLight}
                   />
                 );
               }
