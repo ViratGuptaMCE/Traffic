@@ -33,7 +33,7 @@ export function Bike(props) {
       ref.current.position.z -= props.speed;
     } else {
       // console.log(ref.current.position.x);
-      console.log('If ',props.key);
+      // console.log('If ',props.key);
       if (Math.abs(ref.current.position.x) > 500) {
         props.removeVehicle(props.uid);
       }

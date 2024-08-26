@@ -1,10 +1,8 @@
-// useVehicles.js
 import { useState, useEffect } from "react";
 import { RIGHT } from "../constants";
 
-const useVehicles = () => {
+const useRVehicles = () => {
   const [rightVehicles, setRightVehicles]= useState([]);
-  // console.log('UseVehicles')
 
   useEffect(() => {
     const addVehicle = () => {
@@ -14,7 +12,6 @@ const useVehicles = () => {
         vehicType: randType,
         position: RIGHT.position[Math.floor(Math.random() + 0.5)],
         direction: "right",
-        // visible: true,
       };
       setRightVehicles((prevVehicles) => [...prevVehicles, randomVehicle]);
       timeoutId = setTimeout(addVehicle, 2000);
@@ -24,21 +21,7 @@ const useVehicles = () => {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     // let newVehicles = rightVehicles.filter((vehicle) => vehicle.visible);
-  //     setRightVehicles((prevVehicles) =>
-  //       prevVehicles.filter((vehicle) => {
-  //         return (vehicle.visible)
-  //       })
-  //     );
-  //     // console.log(rightVehicles)
-  //   }, 500);
-
-  //   return () => clearInterval(interval); // Cleanup on unmount
-  // }, []);
-
   return [rightVehicles , setRightVehicles];
 };
 
-export default useVehicles;
+export default useRVehicles;
