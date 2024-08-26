@@ -40,6 +40,7 @@ export function Bus3(props) {
   }
   useFrame(() => {
     changePosition();
+    ref.current.position.y = -20;
   });
   const { nodes, materials } = useGLTF("/models/bus4.glb");
   return (

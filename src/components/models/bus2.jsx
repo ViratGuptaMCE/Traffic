@@ -41,7 +41,7 @@ export function Bus2(props) {
   }
   useFrame(() => {
     changePosition();
-    // ref.current.position.x += props.speed;
+    ref.current.position.y = -17.5;
   });
   return (
     <group {...props} rotation={rotation} scale={0.03} ref={ref} dispose={null}>

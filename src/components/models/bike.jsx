@@ -43,6 +43,7 @@ export function Bike(props) {
 
   useFrame(() => {
     changePosition();
+    ref.current.position.y = -20;
   });
 
   const { nodes, materials } = useGLTF("/models/bike2.glb");

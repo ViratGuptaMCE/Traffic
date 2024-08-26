@@ -41,7 +41,7 @@ export function Car3(props) {
   
   useFrame(() => {
     changePosition();
-    // ref.current.position.z += props.speed;
+    ref.current.position.y = -20;
   });
   const { nodes, materials } = useGLTF("/models/car3.glb");
   return (
