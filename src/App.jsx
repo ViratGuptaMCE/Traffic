@@ -1,6 +1,6 @@
 import "./App.css";
 import { Canvas } from "react-three-fiber";
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Environment, OrbitControls } from "@react-three/drei";
 import Loader from "./components/Loader";
 import { City } from "./components/city";
@@ -12,14 +12,25 @@ import useLVehicles from "./utils/useLVehics";
 import useUVehicles from "./utils/useUVehics";
 import useDVehicles from "./utils/useDVehics";
 
+import { Car4 } from "./components/models/car4";
 
 
 function App() {
+  const [vertiLight, setVertiLight] = useState('green');
   const [Rvehicles, setRVehicles] = useRVehicles();
   const [Lvehicles, setLVehicles] = useLVehicles();
   const [Uvehicles, setUVehicles] = useUVehicles();
   const [Dvehicles, setDVehicles] = useDVehicles();
   // console.log(vehicles);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVertiLight((prev) => {
+        return (prev === "green" ? "red" : "green")
+      });
+    }, 5000); // Change every 5 seconds
+    
+    return () => clearInterval(interval);
+  }, []);
   
    const removeRVehicle = (id) => {
      setRVehicles((prevVehicles) =>
@@ -94,6 +105,8 @@ function App() {
               speed={-0.5}
             />
             <Bike2 position={[35, -15, 30]} speed={0.5} />  */}
+            {/* <Car4 position={[64, -19, -13]} direction={'bottom'} /> */}
+            
             {Rvehicles.map((vehicle) => {
               if (vehicle.vehicType === 1) {
                 return (

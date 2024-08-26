@@ -38,10 +38,10 @@ export function Car4(props) {
       ref.current.position.x -= props.speed;
     }
   }
-  useFrame(() => {
-    changePosition();
-    // ref.current.position.z += props.speed;
-  });
+  // useFrame(() => {
+  //   changePosition();
+  //   // ref.current.position.z += props.speed;
+  // });
   const { nodes, materials} = useGLTF('/models/car4.glb')
   return (
     <group {...props} scale={6} rotation={rotation} ref={ref} dispose={null}>

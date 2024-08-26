@@ -40,12 +40,12 @@ export function Bike2(props) {
   }
 
   useFrame(() => {
-    ref.current.position.y = -15;
+    ref.current.position.y = -16;
     changePosition();
   });
   const { nodes, materials } = useGLTF("/models/bike3.glb");
   return (
-    <group scale={6} {...props} rotation={rotation} ref={ref} dispose={null}>
+    <group scale={5} {...props} rotation={rotation} ref={ref} dispose={null}>
       <group scale={0.01}>
         <mesh
           castShadow
