@@ -17,6 +17,7 @@ export function Bus2(props) {
   }
 
   function changePosition() {
+    if (!props.signal) return;
     if (props.direction == "bottom") {
       ref.current.position.z += props.speed;
       if (Math.abs(ref.current.position.z) > 500) {
