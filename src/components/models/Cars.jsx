@@ -14,9 +14,9 @@ const Cars = (props) => {
     return null; // or a loading spinner if you prefer
   }
   if (randInt === 1) {
-    return <Car {...props} speed={0.3} />;
+    return <Car {...props} speed={0.6} />;
   } else if(randInt === 2) {
-    return <Car3 {...props} speed={0.3} />;
+    return <Car3 {...props} speed={0.6} />;
   }
   // else {
   //   return <Car4 {...props} speed={0.3} />;

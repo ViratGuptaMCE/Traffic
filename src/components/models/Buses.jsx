@@ -13,9 +13,9 @@ const Buses = (props) => {
     return null; // or a loading spinner if you prefer
   }
   if (randInt === 1) {
-    return <Bus2 {...props} speed={0.2} />;
+    return <Bus2 {...props} speed={0.5} />;
   } else {
-    return <Bus3 {...props} speed={0.2} />;
+    return <Bus3 {...props} speed={0.5} />;
   }
 }
 
